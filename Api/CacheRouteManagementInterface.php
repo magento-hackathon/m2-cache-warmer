@@ -4,5 +4,7 @@ namespace Firegento\CacheWarmup\Api;
 
 interface CacheRouteManagementInterface
 {
+    public function incrementPopularityByRoute(string $route);
 
+    public function incrementPopularityById(int $routeId);
 }
