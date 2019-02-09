@@ -18,14 +18,14 @@ class CacheRouteManagement implements CacheRouteManagementInterface
         $this->cacheRouteRepository = $cacheRouteRepository;
     }
 
-    public function incrementPopularityByRoute(string $route)
+    public function incrementPopularityByRoute(string $route): void
     {
         $routeModel = $this->cacheRouteRepository->getByRoute($route);
         $routeModel->incrementPopularity();
         $this->cacheRouteRepository->save($routeModel);
     }
 
-    public function incrementPopularityById(int $routeId)
+    public function incrementPopularityById(int $routeId): void
     {
         $routeModel = $this->cacheRouteRepository->getById($routeId);
         $routeModel->incrementPopularity();
