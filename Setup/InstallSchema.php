@@ -108,8 +108,8 @@ class InstallSchema implements InstallSchemaInterface
                 )
                 ->addColumn(
                     'tag_id',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                    255,
+                    \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    null,
                     ['nullable => false'],
                     'Cache Tag'
                 )
