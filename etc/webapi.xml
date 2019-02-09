@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/cache-warmup/increment-popularity" method="PUT">
+    <route url="/V1/increment-popularity" method="PUT">
         <service class="Firegento\CacheWarmup\Api\CacheRouteManagementInterface" method="incrementPopularityByRoute"/>
         <resources>
             <resource ref="anonymous"/>

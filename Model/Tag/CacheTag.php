@@ -24,7 +24,7 @@ class CacheTag implements CacheTagInterface
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId():? int
     {
         return $this->id;
     }
@@ -41,7 +41,7 @@ class CacheTag implements CacheTagInterface
     /**
      * @return string
      */
-    public function getCacheTag(): string
+    public function getCacheTag():? string
     {
         return $this->cacheTag;
     }

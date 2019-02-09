@@ -32,16 +32,21 @@ class CacheRoute implements CacheRouteInterface
     private $lifetime;
 
     /**
+     * @var int
+     */
+    private $popularity;
+
+    /**
      * @return int
      */
-    public function getId(): int
+    public function getId():? int
     {
         return $this->id;
     }
 
     /**
      * @param int $id
-     * @return mixed
+     * @return void
      */
     public function setId(int $id): void
     {
@@ -51,14 +56,14 @@ class CacheRoute implements CacheRouteInterface
     /**
      * @return string
      */
-    public function getRoute(): string
+    public function getRoute():? string
     {
         return $this->route;
     }
 
     /**
      * @param string $route
-     * @return mixed
+     * @return void
      */
     public function setRoute(string $route): void
     {
@@ -68,14 +73,14 @@ class CacheRoute implements CacheRouteInterface
     /**
      * @return bool
      */
-    public function getCacheStatus(): bool
+    public function getCacheStatus():? bool
     {
         return $this->cacheStatus;
     }
 
     /**
      * @param int|bool $cacheStatus
-     * @return mixed
+     * @return void
      */
     public function setCacheStatus($cacheStatus): void
     {
@@ -85,17 +90,34 @@ class CacheRoute implements CacheRouteInterface
     /**
      * @return int
      */
-    public function getLifetime(): int
+    public function getLifetime():? int
     {
         return $this->lifetime;
     }
 
     /**
      * @param int $lifetime
-     * @return mixed
+     * @return void
      */
     public function setLifetime(int $lifetime): void
     {
         $this->lifetime = $lifetime;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPopularity():? int
+    {
+        return $this->popularity;
+    }
+
+    /**
+     * @param int $popularity
+     * @return void
+     */
+    public function setPopularity(int $popularity): void
+    {
+        $this->popularity = $popularity;
     }
 }

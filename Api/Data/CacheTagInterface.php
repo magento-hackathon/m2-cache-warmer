@@ -7,7 +7,7 @@ interface CacheTagInterface
     /**
      * @return int
      */
-    public function getId(): int;
+    public function getId():? int;
 
     /**
      * @param int $id
@@ -18,7 +18,7 @@ interface CacheTagInterface
     /**
      * @return string
      */
-    public function getCacheTag(): string;
+    public function getCacheTag():? string;
 
     /**
      * @param string $cacheTag
