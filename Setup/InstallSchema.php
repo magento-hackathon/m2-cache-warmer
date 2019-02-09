@@ -12,7 +12,6 @@ use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 
-
 class InstallSchema implements InstallSchemaInterface
 {
     /**
@@ -103,14 +102,14 @@ class InstallSchema implements InstallSchemaInterface
                     'route_id',
                     \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     null,
-                    ['nullable' => false],
+                    ['nullable' => false, 'unsigned' => true],
                     'Cache Tag ID'
                 )
                 ->addColumn(
                     'tag_id',
                     \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     null,
-                    ['nullable => false'],
+                    ['nullable => false', 'unsigned' => true],
                     'Cache Tag'
                 )
                 ->setComment('Cache Tag Table');
@@ -145,11 +144,7 @@ class InstallSchema implements InstallSchemaInterface
                 'id',
                 \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
             );
-
         }
         $installer->endSetup();
-
-
-
     }
 }
