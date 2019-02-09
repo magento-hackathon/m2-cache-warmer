@@ -1,7 +1,6 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: utietze
- * Date: 09.02.19
- * Time: 19:29
- */
+<?php declare(strict_types=1);
+
+interface CacheTagsManagementInterface
+{
+
+}
