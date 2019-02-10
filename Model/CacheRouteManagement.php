@@ -3,41 +3,35 @@
 namespace Firegento\CacheWarmup\Model;
 
 use Firegento\CacheWarmup\Api\CacheRouteManagementInterface;
-use Firegento\CacheWarmup\Api\CacheRouteRepositoryInterface;
-use Firegento\CacheWarmup\Service\PopularityService;
+use Firegento\CacheWarmup\Model\Route\Management\IncrementPopularityById;
+use Firegento\CacheWarmup\Model\Route\Management\IncrementPopularityByRoute;
 
 class CacheRouteManagement implements CacheRouteManagementInterface
 {
     /**
-     * @var PopularityService
+     * @var IncrementPopularityById
      */
-    protected $popularityService;
+    protected $incrementPopularityById;
     /**
-     * @var CacheRouteRepositoryInterface
+     * @var IncrementPopularityByRoute
      */
-    private $cacheRouteRepository;
+    protected $incrementPopularityByRoute;
 
     public function __construct(
-        CacheRouteRepositoryInterface $cacheRouteRepository,
-        PopularityService $popularityService
+        IncrementPopularityById $incrementPopularityById,
+        IncrementPopularityByRoute $incrementPopularityByRoute
     ) {
-        $this->cacheRouteRepository = $cacheRouteRepository;
-        $this->popularityService = $popularityService;
+        $this->incrementPopularityById = $incrementPopularityById;
+        $this->incrementPopularityByRoute = $incrementPopularityByRoute;
     }
 
     public function incrementPopularityByRoute(string $route): void
     {
-        $routeModel = $this->cacheRouteRepository->getByRoute($route);
-        $this->popularityService->incrementPopularity($routeModel);
-
-        $this->cacheRouteRepository->save($routeModel);
+        $this->incrementPopularityByRoute->execute($route);
     }
 
     public function incrementPopularityById(int $routeId): void
     {
-        $routeModel = $this->cacheRouteRepository->getById($routeId);
-        $this->popularityService->incrementPopularity($routeModel);
-
-        $this->cacheRouteRepository->save($routeModel);
+        $this->incrementPopularityById->execute($routeId);
     }
 }
