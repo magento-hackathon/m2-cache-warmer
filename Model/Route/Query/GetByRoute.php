@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: utietze
- * Date: 09.02.19
- * Time: 23:48
- */
+<?php declare(strict_types=1);
 
 namespace Firegento\CacheWarmup\Model\Route\Query;
 

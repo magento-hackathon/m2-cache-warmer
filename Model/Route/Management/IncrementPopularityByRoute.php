@@ -1,13 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: utietze
- * Date: 10.02.19
- * Time: 10:11
- */
+<?php declare(strict_types=1);
 
 namespace Firegento\CacheWarmup\Model\Route\Management;
 
+use Magento\Framework\App\ResourceConnection;
 
 class IncrementPopularityByRoute
 {

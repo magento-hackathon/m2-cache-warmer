@@ -1,13 +1,6 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: utietze
- * Date: 10.02.19
- * Time: 01:09
- */
+<?php declare(strict_types=1);
 
 namespace Firegento\Model\Tag\Query;
-
 
 use Firegento\CacheWarmup\Api\Data\CacheTagInterface;
 use Firegento\CacheWarmup\Api\Data\CacheTagInterfaceFactory;

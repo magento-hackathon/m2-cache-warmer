@@ -2,7 +2,6 @@
 
 namespace Firegento\CacheWarmup\Model\Route;
 
-
 use Firegento\CacheWarmup\Api\Data\CacheRouteInterface;
 
 /**
