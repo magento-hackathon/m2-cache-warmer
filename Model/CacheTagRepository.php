@@ -6,35 +6,37 @@ namespace Firegento\CacheWarmup\Model;
 use Firegento\CacheWarmup\Api\CacheTagRepositoryInterface;
 use Firegento\CacheWarmup\Api\Data\CacheTagInterface;
 use Firegento\CacheWarmup\Api\Data\CacheTagInterfaceFactory;
+use Firegento\CacheWarmup\Model\Tag\Query\GetById;
+use Firegento\CacheWarmup\Model\Tag\Query\GetByTag;
 
 class CacheTagRepository implements CacheTagRepositoryInterface
 {
-    /**
-     * @var CacheTagInterfaceFactory
-     */
-    protected $cacheTagFactory;
 
-    public function __construct(CacheTagInterfaceFactory $cacheTagFactory)
-    {
-        $this->cacheTagFactory = $cacheTagFactory;
+    /**
+     * @var GetById
+     */
+    protected $getById;
+    /**
+     * @var GetByTag
+     */
+    protected $getByTag;
+
+    public function __construct(
+        GetById $getById,
+        GetByTag $getByTag
+    ) {
+
+        $this->getById = $getById;
+        $this->getByTag = $getByTag;
     }
 
     public function getById(int $id):? CacheTagInterface
     {
-        // TODO: May implement something with real data here
-
-        /** @var CacheTagInterface $cacheTag */
-        $cacheTag = $this->cacheTagFactory->create();
-        $cacheTag->setId($id);
-        $cacheTag->setCacheTag("saucooles_fancy_superproduct");
-
-        return $cacheTag;
+        return $this->getById->execute($id);
     }
 
     public function getByTag(string $cacheTag):? CacheTagInterface
     {
-        // TODO: May implement something with real data here
-
-        return $this->getById(rand(1,4000));
+        return $this->getByTag->execute($cacheTag);
     }
 }

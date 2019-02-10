@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Firegento\Model\Tag\Query;
+namespace Firegento\CacheWarmup\Model\Tag\Query;
 
 use Firegento\CacheWarmup\Api\Data\CacheTagInterface;
 use Firegento\CacheWarmup\Api\Data\CacheTagInterfaceFactory;
