@@ -14,9 +14,6 @@ class InstallSchema implements InstallSchemaInterface
      */
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        if ($setup->tableExists('cache_tags')) {
-            return;
-        }
         $setup->startSetup();
         $setup->getConnection()->createTable($this->getCacheTagTableDefinition($setup));
         $setup->getConnection()->createTable($this->getCacheRouteTableDefinition($setup));
@@ -109,7 +106,7 @@ class InstallSchema implements InstallSchemaInterface
             ->addColumn(
                 'cache_route',
                 \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                "2M",
+                255,
                 ['nullable' => false],
                 'Cache Route'
             )
