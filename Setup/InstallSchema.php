@@ -43,7 +43,7 @@ class InstallSchema implements InstallSchemaInterface
                     'cache_tag',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     255,
-                    ['nullable => false'],
+                    ['nullable' => false],
                     'Cache Tag'
                 )
                 ->setComment('Cache Tag Table');
@@ -68,28 +68,37 @@ class InstallSchema implements InstallSchemaInterface
                     'cache_route',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     "2M",
-                    ['nullable => false'],
+                    ['nullable' => false],
                     'Cache Route'
+                )
+                ->addIndex(
+                    $installer->getIdxName(
+                        'cache_routes',
+                        ['cache_route'],
+                        \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
+                    ),
+                    ['cache_route'],
+                    ['type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE]
                 )
                 ->addColumn(
                     'cache_status',
                     \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
                     1,
-                    ['nullable => false'],
+                    ['nullable' => false],
                     'Cache Status'
                 )
                 ->addColumn(
                     'lifetime',
                     \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     null,
-                    ['nullable => false'],
+                    ['nullable' => false],
                     'Cache Route Lifetime'
                 )
                 ->addColumn(
                     'popularity',
                     \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     null,
-                    ['nullable => false'],
+                    ['nullable' => false],
                     'Cache Route Populariy'
                 )
                 ->setComment('Cache Route Table');

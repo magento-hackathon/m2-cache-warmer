@@ -9,4 +9,6 @@ interface CacheRouteRepositoryInterface
     public function getById(int $id):? CacheRouteInterface;
 
     public function getByRoute(string $route):? CacheRouteInterface;
+
+    public function save(CacheRouteInterface $cacheRoute): void;
 }
