@@ -62,23 +62,23 @@ class InstallSchema implements InstallSchemaInterface
     {
         return $setup->getConnection()->newTable($setup->getTable('cache_vary_data'))
             ->addColumn(
-                'id',
-                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
-                null,
-                [
-                    'identity' => true,
-                    'nullable' => false,
-                    'primary' => true,
-                    'unsigned' => true,
-                ],
-                'Cache Vary Data ID'
-            )
-            ->addColumn(
                 'vary_data',
                 \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 255,
-                ['nullable' => false],
+                [
+                    'nullable' => false,
+                    'primary' => true
+                ],
                 'Cache Vary Data'
+            )
+            ->addIndex(
+                $setup->getIdxName(
+                    'cache_vary_data',
+                    ['vary_data'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE
+                ),
+                ['vary_data'],
+                ['type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE]
             )
             ->setComment('Cache Vary Data Table');
     }

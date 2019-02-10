@@ -33,4 +33,9 @@
             type="Firegento\CacheWarmup\Model\Tag\CacheTag"
     />
 
+    <preference
+            for="Firegento\CacheWarmup\Api\CacheVaryDataRepositoryInterface"
+            type="Firegento\CacheWarmup\Model\CacheVaryDataRepository"
+    />
+
 </config>
