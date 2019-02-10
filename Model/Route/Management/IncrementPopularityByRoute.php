@@ -24,7 +24,7 @@ class IncrementPopularityByRoute
         $connection->update(
             'cache_routes',
             ['popularity' => new \Zend_Db_Expr('popularity + 1')],
-            ['cache_route' => $route]
+            ['cache_route = ?' => $route]
         );
     }
 }
