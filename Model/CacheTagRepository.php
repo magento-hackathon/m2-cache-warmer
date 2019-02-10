@@ -2,7 +2,6 @@
 
 namespace Firegento\CacheWarmup\Model;
 
-
 use Firegento\CacheWarmup\Api\CacheTagRepositoryInterface;
 use Firegento\CacheWarmup\Api\Data\CacheTagInterface;
 use Firegento\CacheWarmup\Api\Data\CacheTagInterfaceFactory;
@@ -22,11 +21,10 @@ class CacheTagRepository implements CacheTagRepositoryInterface
     protected $getByTag;
 
     public function __construct(
-        GetById $getById,
+        GetById  $getById,
         GetByTag $getByTag
     ) {
-
-        $this->getById = $getById;
+        $this->getById  = $getById;
         $this->getByTag = $getByTag;
     }
 
