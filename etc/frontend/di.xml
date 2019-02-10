@@ -3,4 +3,11 @@
     <type name="Magento\Framework\App\PageCache\Identifier">
         <plugin name="saveVaryData" type="\Firegento\CacheWarmup\Plugin\CacheIdentifier\SaveVaryData"/>
     </type>
+    <type name="Firegento\CacheWarmup\Model\VaryData\Applicator\VaryDataApplicatorList">
+        <arguments>
+            <argument name="varyDataApplicators" xsi:type="array">
+                <item name="customer_group" xsi:type="object">Firegento\CacheWarmup\Model\VaryData\Applicator\CustomerGroupApplicator</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
