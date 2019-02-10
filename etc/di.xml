@@ -8,4 +8,29 @@
             </argument>
         </arguments>
     </type>
+    <preference
+            for="Firegento\CacheWarmup\Api\CacheRouteManagementInterface"
+            type="Firegento\CacheWarmup\Model\CacheRouteManagement"
+    />
+    <preference
+            for="Firegento\CacheWarmup\Api\CacheRouteRepositoryInterface"
+            type="Firegento\CacheWarmup\Model\CacheRouteRepository"
+    />
+    <preference
+            for="Firegento\CacheWarmup\Api\CacheTagManagementInterface"
+            type="Firegento\CacheWarmup\Model\CacheTagManagement"
+    />
+    <preference
+            for="Firegento\CacheWarmup\Api\CacheTagRepositoryInterface"
+            type="Firegento\CacheWarmup\Model\CacheTagRepository"
+    />
+    <preference
+            for="Firegento\CacheWarmup\Api\Data\CacheRouteInterface"
+            type="Firegento\CacheWarmup\Model\Route\CacheRoute"
+    />
+    <preference
+            for="Firegento\CacheWarmup\Api\Data\CacheTagInterface"
+            type="Firegento\CacheWarmup\Model\Tag\CacheTag"
+    />
+
 </config>
