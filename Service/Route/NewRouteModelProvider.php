@@ -25,7 +25,7 @@ class NewRouteModelProvider
         $this->cacheRouteInterfaceFactory = $cacheRouteInterfaceFactory;
     }
 
-    public function createForRoute(string $route, int $cacheStatus = 0, int $lifetime = 86400, int $popularity): CacheRouteInterface
+    public function createForRoute(string $route, int $cacheStatus = 0, int $lifetime = 86400, int $popularity = 0): CacheRouteInterface
     {
         /** @var CacheRouteInterface $freshCacheRoute */
         $freshCacheRoute = $this->cacheRouteInterfaceFactory->create();

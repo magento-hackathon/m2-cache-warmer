@@ -21,6 +21,10 @@
             type="Firegento\CacheWarmup\Model\CacheTagManagement"
     />
     <preference
+            for="Firegento\CacheWarmup\Api\RoutesTagsLinkManagement"
+            type="Firegento\CacheWarmup\Model\RoutesTagsLinkManagement"
+    />
+    <preference
             for="Firegento\CacheWarmup\Api\CacheTagRepositoryInterface"
             type="Firegento\CacheWarmup\Model\CacheTagRepository"
     />
