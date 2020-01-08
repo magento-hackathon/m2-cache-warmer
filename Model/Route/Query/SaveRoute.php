@@ -3,6 +3,7 @@
 namespace Firegento\CacheWarmup\Model\Route\Query;
 
 use Firegento\CacheWarmup\Api\Data\CacheRouteInterface;
+use Firegento\CacheWarmup\Api\Data\CacheRouteInterfaceFactory;
 use Magento\Framework\App\ResourceConnection;
 
 class SaveRoute
