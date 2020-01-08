@@ -2,6 +2,10 @@
 
 namespace Firegento\CacheWarmup\Console\Command;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Pool;
+use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 use League\CLImate\CLImate;
 use Magento\UrlRewrite\Model\ResourceModel\UrlRewriteCollection;
@@ -129,11 +133,11 @@ class CacheWarmup extends Command
     {
         return new Pool($client, $requests(), [
             'concurrency' => $this->maxConcurrentRequests,
-            'fulfilled' => function ($response, $index) use ($output) {
-                $output->writeln("Successful: " . $index);
+            'fulfilled' => function (Response $response, $index) use ($client, $output) {
+                $output->writeln('Successful: ' . $index);
             },
-            'rejected' => function ($reason, $index) use ($output) {
-                $output->writeln("Rejected: " . $index);
+            'rejected' => function (RequestException $reason, $index) use ($client, $output) {
+                $output->writeln('Rejected: ' . $reason->getRequest()->getUri());
             },
         ]);
     }
