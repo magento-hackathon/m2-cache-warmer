@@ -13,7 +13,7 @@
         "guzzlehttp/guzzle": "~6.2"
     },
     "type": "magento2-module",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "autoload": {
         "files": [
             "registration.php"
